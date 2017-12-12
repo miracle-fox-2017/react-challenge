@@ -4,6 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import Home from './Home'
 
 class Dota extends React.Component {
   constructor () {
@@ -14,7 +15,7 @@ class Dota extends React.Component {
   render () {
     return (
       <div>
-        <h1>INI DOTA DETAILS</h1>
+        <h1>INFORMASI DETAILS {this.props.match.params.heroName}</h1>
       </div>
     )
   }

@@ -35,7 +35,8 @@ class App extends Component {
             </ul>
           </div>
           <Route exact path="/" component={Home}/>
-           <Route exact path="/dota" component={Dota}/>
+          <Route exact path="/dota/" component={Dota}/>
+          <Route exact path="/dota/:heroName" component={Dota}/>
         </div>
       </nav>
       </div>
