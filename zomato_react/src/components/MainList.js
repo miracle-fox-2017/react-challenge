@@ -27,15 +27,26 @@ class MainList extends Component {
     })
   }
   render () {
+    let imgStyle = {
+      'height': '300px',
+      'backgroundAttachment': 'cover',
+      'opacity': '0.5'
+    }
+    let cardStyle = {
+      'marginBottom': '2em'
+    }
+    let aStyle = {
+      'color': 'white'
+    }
     return (
       <div className="row">
       {this.state.collections.map((collectionItem) => {
         return (
           <div className="col-md-3" key={collectionItem.collection.collection_id}>
-            <div className="card bg-dark text-white">
-              <img className="card-img" src={collectionItem.collection.image_url} alt={collectionItem.collection.image_url} />
+            <div className="card bg-dark text-white" style={cardStyle}>
+              <img className="card-img" style={imgStyle} src={collectionItem.collection.image_url} alt={collectionItem.collection.image_url} />
               <div className="card-img-overlay">
-                <h4 className="card-title">{collectionItem.collection.title}</h4>
+                <h3 className="card-title"><a href={collectionItem.collection.url} style={aStyle}>{collectionItem.collection.title}</a></h3>
                 <p className="card-text">{collectionItem.collection.description}</p>
                 <p className="card-text">Last updated 3 mins ago</p>
               </div>
