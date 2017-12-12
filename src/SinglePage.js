@@ -54,7 +54,7 @@ export default class SinglePage extends Component {
   componentDidMount() {
     let postId = this.props.match.params.postId;
     const apiUrl = `http://www.sfexaminer.com/wp-json/wp/v2/posts/${+postId}?_embed`;
-
+    
     axios.get(apiUrl)
       .then(({ data }) => {
         this.setState({
