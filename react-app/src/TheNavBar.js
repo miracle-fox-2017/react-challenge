@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from './logo.svg';
 
-const TheNavBar = () => (
+const TheNavBar = (props) => (
   <div className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <a className="navbar-item">
