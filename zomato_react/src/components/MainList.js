@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios'
 
 class MainList extends Component {
-  constructor () {
-    super ()
+  constructor (props) {
+    super (props)
     this.state = {
       collections: []
     }
@@ -21,10 +21,12 @@ class MainList extends Component {
       this.setState({
         collections: data.collections
       })
-      console.log(this.state.collections[0].collection)
     }).catch((err) => {
       console.log(err)
     })
+  }
+  sendCollectionId = (collectionId) => {
+    this.props.sendCollectionsData(collectionId)
   }
   render () {
     let imgStyle = {
@@ -49,6 +51,7 @@ class MainList extends Component {
                 <h3 className="card-title"><a href={collectionItem.collection.url} style={aStyle}>{collectionItem.collection.title}</a></h3>
                 <p className="card-text">{collectionItem.collection.description}</p>
                 <p className="card-text">Last updated 3 mins ago</p>
+                <button type="button" className="btn btn-primary" onClick={() => this.sendCollectionId(collectionItem.collection.collection_id)}>See Restaurants</button>
               </div>
             </div>
           </div>
