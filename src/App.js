@@ -107,30 +107,40 @@ class App extends Component {
                 <Input name="avatarURL" value={this.state.newData.avatarURL} placeholder="Link url  gambars" onChange={this.onChanges} />
               </FormItem>
               <br/>
+              
+              {this.state.newData.avatarURL &&
               <Card
                 hoverable
                 style={{ width: 240 }}
                 cover={<img alt="your  gambar" src={this.state.newData.avatarURL} />}
                 >
               </Card>
-              {this.state.newData.avatarURL &&
-                <img style={ gambarStyle} alt="upload  gambar" src={this.state.newData.avatarURL} />
               }
               <Button type="primary" onClick={this.Processing}>Process</Button>
           </Form> 
           <h1>All Photos</h1>
-          {this.state.allPhotos.map(data => {
-            console.log(data.url)
-            {data.url}
-          })}
           <div>
-            {this.state.allPhotos.map(photos => {
-              <Card title="Card Title">
-                <Card.Grid style={gridStyle}>
-                  <img alt="" style={ gambarStyle} src={photos.url} />
-                </Card.Grid>
+            <Card title=''>
+              {this.state.allPhotos.map(photos => {
+                return(  
+                  <Card.Grid style={gridStyle}>
+                    <img alt="" style={gambarStyle} src={photos.url} />
+                    <p>Jenis Kelamin: {photos.jenis_kelamin}</p>
+                    <p>Kaca Mata: {photos.kaca_mata}</p>
+                    <p>Kesedihan: {photos.kesedihan}</p>
+                    <p>Ketakutan: {photos.ketakutan}</p>
+                    <p>Marah: {photos.marah}</p>
+                    <p>Mata: {photos.mata}</p>
+                    <p>Perasaan: {photos.perasaan}</p>
+                    <p>Perasaan Baik: {photos.perasaan_baik}</p>
+                    <p>Senang: {photos.senang}</p>
+                    <p>Tersenyum: {photos.tersenyum}</p>
+                    <p>Umur: {photos.umur}</p>
+                    <p>Bibir: {photos.bibir}</p>
+                  </Card.Grid>
+                )
+              })}
             </Card>
-            })}
           </div>
           </Content>
         </Layout>
