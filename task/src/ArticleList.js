@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ArticleItem from './ArticleItem'
 const ArticleList = (props) => {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
       
     { props.articles.map((article, index) => {
@@ -10,11 +10,13 @@ const ArticleList = (props) => {
           <div className="col-sm-6 col-md-5">
             
             <ArticleItem
-              key= {index}
+              id= {index}
               author= {article.author}
               title= {article.title}
               description= {article.description}
               urlToImage= {article.urlToImage}
+              url= {article.url}
+              getArticle= {props.getArticle}
             />
           </div>
         )

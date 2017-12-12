@@ -1,15 +1,31 @@
 import React from 'react'
+import ArticleModal from './ArticleModal'
+import { Link } from 'react-router-dom'
 
 const ArticleItem = (props) => {
   return (
       <div>
-        <div className="thumbnail">
-        <img src={props.urlToImage} alt="..." />
-          <div className="caption">
-            <h3>{props.title}</h3>
+        <div className="card">
+        <img src={props.urlToImage} alt="..." className="img-thumbnail"/>
+          <div className="card-body">
+            <h3 className="card-title">{props.title}</h3>
             <p>{props.description}</p>
-            <p><a href="#" className="btn btn-primary" role="button">Button</a> <a href="#" className="btn btn-default" role="button">Button</a></p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={() => {props.getArticle(props.id)}}>
+              Modal
+            </button>  <Link class="btn btn-success" to= {{
+              pathname: props.url,
+              state: {
+                berita: {
+                  urlToImage : props.urlToImage,
+                  title: props.title,
+                  description: props.description,
+                  author: props.author,
+                }
+              }
+            }}>Router</Link>
+            
           </div>
+          <ArticleModal/>
         </div>
       </div>
   )
