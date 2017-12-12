@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 export default class GameItem extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   handeDate(str) {
     if(!str) return ''
     let date = new Date(str)

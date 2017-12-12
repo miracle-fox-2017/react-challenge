@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import fastXmlParser from 'fast-xml-parser'
 
-import Navbar from './Navbar'
-import GameItem from './GameItem'
 import GameList from './GameList'
-import GameDetail from './GameDetail'
 
 export default class MainPage extends Component {
   constructor() {

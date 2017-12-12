@@ -22,21 +22,26 @@ export default class SearchPage extends Component {
     .then(({data}) => {
       let jsonObj = fastXmlParser.parse(data)
       let searchResult = jsonObj.response.results.game
-      console.log(searchResult)
-      this.setState({
-        loadingSearch: false,
-        searchResult: searchResult || []
-      })
+        this.setState({
+          loadingSearch: false,
+          searchResult: searchResult || []
+        })
     })
   }
 
   render() {
+    let content = ''
+    if(this.state.searchResult.length > 0) {
+      content = <GameList gameList={this.state.searchResult} />      
+    } else {
+      content = <h1>Game not found...</h1>
+    }
     return(
       <div>
         <p className="title">Search Game</p>
         <p className="subtitle">Search Result</p>
         <div className="content">
-          <GameList gameList={this.state.searchResult} />
+          {content}
         </div>
       </div>
     )

@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import GameItem from './GameItem'
 
 export default class GameList extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return(
       <div>
