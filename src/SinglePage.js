@@ -14,7 +14,8 @@ export default class SinglePage extends Component {
         content: {
           rendered: ''
         }
-      }
+      },
+      data: props.location.state  // Passing value from link using state
     }
 
   }
@@ -54,7 +55,9 @@ export default class SinglePage extends Component {
   componentDidMount() {
     let postId = this.props.match.params.postId;
     const apiUrl = `http://www.sfexaminer.com/wp-json/wp/v2/posts/${+postId}?_embed`;
-    
+
+    console.log(this.state.data.payload) // Passing value from link using state
+
     axios.get(apiUrl)
       .then(({ data }) => {
         this.setState({

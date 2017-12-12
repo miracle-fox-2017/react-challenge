@@ -52,8 +52,14 @@ export default class ArticleItem extends Component {
 
     return (
       <div className="articleItem" style={articleItemStyle}>
-        <h2 className="articleTitle"><Link style={linkStyle} to={{ pathname: `/post/${this.props.article.id}` }}>{this.props.article.title.rendered}</Link></h2>
-
+        <h2 className="articleTitle">
+          <Link style={linkStyle} to={{ 
+            pathname: `/post/${this.props.article.id}`, 
+            state: { payload: 'ARTICLE-' + this.props.article.id } }}> 
+              {this.props.article.title.rendered}
+          </Link>
+        </h2>
+            
         <img alt={this.props.article.title.rendered} style={featuredImageStyle} src={
           this.props.article._embedded !== null && typeof this.props.article._embedded['wp:featuredmedia'] !== 'undefined' ? this.props.article._embedded['wp:featuredmedia'][0].source_url : 'https://placeimg.com/300/200/animal'} />
 
