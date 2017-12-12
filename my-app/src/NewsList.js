@@ -14,15 +14,13 @@ class NewsList extends Component {
           <Link to={{
             pathname: this.props.news.url,
             state: {
-              berita: {
-                title: this.props.news.title,
-                description: this.props.news.description,
-                urlToImage: this.props.news.urlToImage,
-                url: this.props.news.url,
-                publishedAt: this.props.news.publishedAt,
-                author: this.props.news.author,
-                source: this.props.news.source
-              }
+              title: this.props.news.title,
+              description: this.props.news.description,
+              urlToImage: this.props.news.urlToImage,
+              url: this.props.news.url,
+              publishedAt: this.props.news.publishedAt,
+              author: this.props.news.author,
+              source: this.props.news.source
             }
           }}>See More</Link>
         </div>

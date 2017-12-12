@@ -3,7 +3,7 @@ import axios from 'axios'
 import './App.css';
 import NewsList from './NewsList'
 import Header from './Header'
-
+import Sidebar from './Sidebar'
 
 class Home extends Component {
   constructor() {
@@ -12,7 +12,6 @@ class Home extends Component {
       news: []
     }
   }
-
   componentWillMount() {
     this.getData()
   }
@@ -35,7 +34,14 @@ class Home extends Component {
         <Header />
         <div className="container">
           <div className="col-md-12">
-            <div className="col-md-2">
+            <div className="col-md-4">
+              <div className="well">
+                <h3>News List</h3>
+                <hr />
+                {this.state.news.map((berita, index) => {
+                  return <Sidebar key={index} news={berita} />
+                })}
+              </div>
             </div>
             <div className="col-md-8">
               {this.state.news.map((berita, index) => {
