@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
-import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail'
+import SearchBar from './search_bar';
+import VideoList from './video_list';
+import VideoDetail from './video_detail'
 import YTSearch from 'youtube-api-search';
+import footer from './footer'
+import foto from '../icon.png'
 
 const API_KEY= 'AIzaSyB0hA_Viw7GzD-Rzc9PPPnytatS-geMjOM'
 
@@ -14,7 +16,7 @@ class Youman extends Component{
       selectedVideo: null
     };
 
-    this.videoSearch('dangdut')
+    this.videoSearch('youtube')
   }
   videoSearch(term){
     YTSearch({key: API_KEY , term : term}, (videos)=>{
@@ -29,16 +31,14 @@ class Youman extends Component{
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-          <SearchBar onSearchTermChange ={ term =>this.videoSearch(term)}/>
-          <VideoDetail video={this.state.selectedVideo}/>
-          <VideoList 
-          onVideoSelect ={selectedVideo=> this.setState({selectedVideo })}
-          videos={this.state.videos} />
+          <h1 className="app-title">Welcome to Youman</h1>
+            <SearchBar onSearchTermChange ={ term =>this.videoSearch(term)}/>
+            <VideoDetail video={this.state.selectedVideo}/>
+            <VideoList 
+            onVideoSelect ={selectedVideo=> this.setState({selectedVideo })}
+            videos={this.state.videos} />
+            <footer/>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }

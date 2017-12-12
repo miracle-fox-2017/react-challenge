@@ -14,16 +14,21 @@ body {
 .list-group{
   background-color: blue;
   margin-left: 10px;
+  /* float: right; */
+  position: relative;
 }
 .video-item img{
   max-width:  64px;
 }
 
+.app-title{
+  text-align: center;
+}
 .video-detail .details{
   margin-top: 10px;
   float: left;
   /* text-align: center; */
-  padding: 10px;
+  /* padding: 10px; */
   border : 1px solid rgb(216, 76, 76);
   border-radius: 4px;
 }
@@ -35,4 +40,7 @@ body {
 
 .list-group-item:hover{
   background-color: #eee
+}
+.header-header{
+  text-align: center;
 }
