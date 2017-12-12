@@ -12,6 +12,8 @@ class App extends Component {
     this.state = {
       articles: [],
     }
+
+    this.getSelectedPost = this.getSelectedPost.bind(this)
   }
 
   componentWillMount () {
@@ -24,6 +26,17 @@ class App extends Component {
         })
 
       }).catch(err => console.error({ message: 'Something wrong', error: err.message }));
+  }
+
+  getSelectedPost(post, index) {
+    console.log("---------- From child ", index, post)
+    let modifiedArticle = this.state.articles.splice(index, 1)
+    this.setState({
+      articles: this.state.articles
+    })
+
+    console.log(this.state.articles)
+    
   }
 
   render () {
@@ -44,7 +57,7 @@ class App extends Component {
           {
             this.state.articles.map((article, index) => {
               return (
-                <ArticleItem key={index} article={article}/>
+                <ArticleItem key={index} index={index} article={article} getSelected={this.getSelectedPost}/>
               )
             })
           }

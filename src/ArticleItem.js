@@ -10,6 +10,10 @@ export default class ArticleItem extends Component {
     }
   }
 
+  doGetSelectedPost(post, index) {
+    this.props.getSelected(post, index)
+  }
+
   render () {
     const articleItemStyle = {
       border: '1px solid #ddd',
@@ -24,6 +28,15 @@ export default class ArticleItem extends Component {
       marginBottom: '20px'
     }
 
+    const archiveButtonStyle = {
+      border: '0',
+      background: '#5f5858',
+      color: '#fff',
+      padding: '10px 20px',
+      marginTop: '20px',
+      width: '50%'
+    }
+
     return (
       <div className="articleItem" style={articleItemStyle}>
         <h2 className="articleTitle">{this.props.article.title.rendered}</h2>
@@ -34,6 +47,9 @@ export default class ArticleItem extends Component {
         <br />
 
         {striptags(this.props.article.excerpt.rendered)}
+        
+        <br/>
+        <button style={archiveButtonStyle} onClick={this.doGetSelectedPost.bind(this, this.props.article, this.props.index)}>Archive It</button>
       </div>
     )
   }
