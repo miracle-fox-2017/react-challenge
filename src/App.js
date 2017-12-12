@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-var html = require('react-escape-html');
-var striptags = require('striptags');
+import striptags from 'striptags';
+import ArticleItem from './ArticleItem'
 
 class App extends Component {
   constructor (props) {
@@ -56,16 +56,7 @@ class App extends Component {
           {
             this.state.articles.map((article, index) => {
               return (
-                <div className = "articleItem" key={index} style={articleItemStyle}>
-                  <h2 className="articleTitle">{article.title.rendered}</h2>
-            
-                  <img style={featuredImageStyle} src = {
-                      article._embedded !== null && typeof article._embedded['wp:featuredmedia'] !== 'undefined' ? article._embedded['wp:featuredmedia'][0].source_url : 'https://placeimg.com/300/200/animal'}/>
-                  
-                  <br/>
-
-                  { striptags(article.excerpt.rendered) }
-                </div>
+                <ArticleItem key={index} article={article}/>
               )
             })
           }
