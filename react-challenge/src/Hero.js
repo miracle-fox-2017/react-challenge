@@ -5,14 +5,22 @@ class Hero extends Component {
   constructor(props) {
     super()
     this.state = {
-      heroData: props.heroData
+      heroData: props.heroData,
     }
   }
   
   render () {
+    //render something here
     return (
       <div>
         <h1>{this.state.heroData.Name}</h1>
+      </div>
+    )
+  }
+  
+  showDetails () {
+    return (
+      <div className="heroDetails">
         <h3>Movespeed : {this.state.heroData.Movespeed}</h3>
         <h3>HP : {this.state.heroData.HP}</h3>
         <h3>Mana : {this.state.heroData.Mana}</h3>
@@ -21,9 +29,7 @@ class Hero extends Component {
         <h3>BaseInt : {this.state.heroData.BaseInt}</h3>
       </div>
     )
-    //render something here
   }
-  
   
 }
 
