@@ -27,18 +27,6 @@ class App extends Component {
   }
 
   render () {
-    const articleItemStyle = {
-      border: '1px solid #ddd',
-      margin: '20px',
-      padding: '10px',
-      width: '50%',
-      background: 'ghostwhite',
-    };
-
-    const featuredImageStyle = {
-      width: '100%' 
-    }
-
     const articleListStyle = {
       display: 'flex',
       flexWrap: 'wrap',
