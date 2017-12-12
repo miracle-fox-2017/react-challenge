@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from './Home'
-import Hero from './Hero'
-import HeroList from './HeroList.js'
+import HeroDetail from './HeroDetail.js'
 
 
 
@@ -18,7 +17,7 @@ class App extends Component {
               <h1 className="App-title">Welcome to React</h1>
             </header>
             <Route exact path="/" component={Home} />
-            <Route path="/:heroName" render={(props) => <HeroList {...props} /> } />
+            <Route path="/:heroName" render={(props) => <HeroDetail {...props} /> } />
           </div>
         </Router>
     );
