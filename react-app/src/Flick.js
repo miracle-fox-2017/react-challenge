@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const ImageShow = ({ match }) => (
-  <div>
-    <img src={ `https://farm${match.params.farmid}.staticflickr.com/${match.params.serverid}/${match.params.id}_${match.params.secret}_b.jpg` } alt=''/>
+  <div className="box">
+    <img src={ `https://farm${match.params.farmid}.staticflickr.com/${match.params.serverid}/${match.params.id}_${match.params.secret}_m.jpg` } alt=''/>
   </div>
 )
 
