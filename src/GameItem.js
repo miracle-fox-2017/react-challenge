@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { platform } from 'os';
 
 export default class GameItem extends Component {
   constructor(props) {
@@ -7,6 +6,7 @@ export default class GameItem extends Component {
   }
 
   handeDate(str) {
+    if(!str) return ''
     let date = new Date(str)
 
     var monthNames = [
@@ -20,9 +20,6 @@ export default class GameItem extends Component {
     var monthIndex = date.getMonth();
     var year = date.getFullYear();
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
-  }
-
-  handlePlat(platforms) {
   }
 
   render() {
@@ -42,17 +39,16 @@ export default class GameItem extends Component {
             </div>
             <div className="media-content">
               <p className="title is-4">{this.props.gameItem.name}</p>
-              <p className="subtitle is-6">@johnsmith</p>
+              <p className="subtitle is-6">@GiantBomb</p>
             </div>
           </div>
       
           <div className="content text">
             {this.props.gameItem.deck}
             <br/>
-            {this.handlePlat(this.props.gameItem.platforms)}
             <time>Release Date: {this.handeDate(this.props.gameItem.original_release_date)}</time>
             <br/>
-            <a class="button is-info">Read More</a>
+            <a className="button is-info">Read More</a>
           </div>
         </div>
       </div>

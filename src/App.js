@@ -18,19 +18,24 @@ class App extends Component {
     .then(({data}) => {
       let jsonObj = fastXmlParser.parse(data)
       let gameList = jsonObj.response.results.game
-      console.log(gameList[0])
       this.setState({
         gameList: gameList
       })
     })
   }
 
+  searchResult(searchResult) {
+    this.setState({
+      gameList: searchResult
+    })
+  }
+
   render() {
     return (
       <div className="columns is-centered">
-        <div class="column is-6">
+        <div className="column is-6">
           <div className="tile is-vertical">
-            <Navbar />
+            <Navbar searchResult={(e) => this.searchResult(e)}/>
             <div className="tile is-parent">
               <article className="tile is-child notification is-info">
                 <p className="title">Game List</p>
