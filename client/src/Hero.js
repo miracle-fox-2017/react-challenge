@@ -16,7 +16,12 @@ class Hero extends React.Component {
       <tbody>
         <tr>
          <td>{this.props.hero.ID}</td>
-         <td><Link to={`/dota/${this.props.hero.Name}`}>{this.props.hero.Name}</Link></td>
+         <td><Link to={ {
+           pathname: `/dota/${this.props.hero.Name}`,
+           state: {
+             hero: this.props.hero
+           }
+         }}>{this.props.hero.Name}</Link></td>
          <td>{this.props.hero.HP}</td>
          <td>{this.props.hero.Mana}</td>
          <td>{this.props.hero.Armor}</td>

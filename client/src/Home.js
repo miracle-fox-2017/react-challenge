@@ -20,7 +20,6 @@ class Home extends React.Component {
     .then(response => {
       let tampung = []
       for (var index in response.data) {
-        console.log('ISI DATA ----> ', response.data);
           tampung.push(response.data[index])
       }
       this.setState({

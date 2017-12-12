@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Dota from './Dota'
 import Home from './Home'
-
+import axios from 'axios'
 class App extends Component {
 
   constructor () {
@@ -13,6 +13,23 @@ class App extends Component {
       hero: []
     }
   }
+
+  // componentWillMount() {
+  //   axios.get('http://api.herostats.io/heroes/all')
+  //   .then(response => {
+  //     let tampung = []
+  //     for (var index in response.data) {
+  //       console.log('ISI DATA ----> ', response.data);
+  //         tampung.push(response.data[index])
+  //     }
+  //     this.setState({
+  //       hero: tampung
+  //     })
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   })
+  // }
 
   render() {
     return (
@@ -24,7 +41,6 @@ class App extends Component {
           <div className="navbar-header">
             <a className="navbar-brand" href="#">Router</a>
           </div>
-
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul className="nav navbar-nav">
               <li className="active"><Link to="/">Home</Link></li>
@@ -36,7 +52,7 @@ class App extends Component {
           </div>
           <Route exact path="/" component={Home}/>
           <Route exact path="/dota/" component={Dota}/>
-          <Route exact path="/dota/:heroName" component={Dota}/>
+          <Route exact path="/dota/:heroName" render = {(props) => (<Dota heroes={this.state.hero} {...props}/> )}/>
         </div>
       </nav>
       </div>
