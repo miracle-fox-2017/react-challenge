@@ -6,7 +6,14 @@ export default class ArticleItem extends Component {
     super(props)
 
     this.state = {
-      article : {}
+      article : {
+        title: {
+          rendered: ''
+        },
+        content: {
+          rendered: ''
+        }
+      }
     }
   }
 
@@ -41,13 +48,12 @@ export default class ArticleItem extends Component {
       <div className="articleItem" style={articleItemStyle}>
         <h2 className="articleTitle">{this.props.article.title.rendered}</h2>
 
-        <img style={featuredImageStyle} src={
+        <img alt={this.props.article.title.rendered} style={featuredImageStyle} src={
           this.props.article._embedded !== null && typeof this.props.article._embedded['wp:featuredmedia'] !== 'undefined' ? this.props.article._embedded['wp:featuredmedia'][0].source_url : 'https://placeimg.com/300/200/animal'} />
 
         <br />
 
-        {striptags(this.props.article.excerpt.rendered)}
-        
+        <div dangerouslySetInnerHTML={{ __html: this.props.article.excerpt.rendered }}></div>
         <br/>
         <button style={archiveButtonStyle} onClick={this.doGetSelectedPost.bind(this, this.props.article, this.props.index)}>Archive It</button>
       </div>
