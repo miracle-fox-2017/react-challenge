@@ -14,23 +14,6 @@ class App extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   axios.get('http://api.herostats.io/heroes/all')
-  //   .then(response => {
-  //     let tampung = []
-  //     for (var index in response.data) {
-  //       console.log('ISI DATA ----> ', response.data);
-  //         tampung.push(response.data[index])
-  //     }
-  //     this.setState({
-  //       hero: tampung
-  //     })
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   })
-  // }
-
   render() {
     return (
     <Router>
@@ -44,15 +27,13 @@ class App extends Component {
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul className="nav navbar-nav">
               <li className="active"><Link to="/">Home</Link></li>
-              <li className="active"><Link to="/dota">Dota</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li ><a href="#">Login</a></li>
             </ul>
           </div>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/dota/" component={Dota}/>
-          <Route exact path="/dota/:heroName" render = {(props) => (<Dota heroes={this.state.hero} {...props}/> )}/>
+          <Route exact path="/dota/:heroName" render={(props) => (<Dota heroes={this.state.hero} {...props}/> )}/>
         </div>
       </nav>
       </div>

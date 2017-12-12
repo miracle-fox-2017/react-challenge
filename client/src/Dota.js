@@ -9,7 +9,6 @@ import Home from './Home'
 class Dota extends React.Component {
   constructor () {
     super ()
-
   }
 
   render () {
