@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import IndexPage from './IndexPage'
 import SinglePage from './SinglePage'
+import FeaturedSinglePage from './FeaturedSinglePage'
 
 class App extends Component {
   constructor (props) {
@@ -33,7 +34,8 @@ class App extends Component {
 
           <Route exact path="/" component={IndexPage} />
           <Route exact path="/post" render={() => (<IndexPage/>)} />
-          <Route path="/post/:postId" render={(props) => (<SinglePage {...props} />)} />
+          <Route path="/post/:postId" render={(props) => (<FeaturedSinglePage>
+            <SinglePage {...props} /></FeaturedSinglePage>)} />
         </div>
       </Router>
     );
