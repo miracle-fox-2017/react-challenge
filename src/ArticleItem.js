@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import striptags from 'striptags';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 export default class ArticleItem extends Component {
   constructor(props) {
@@ -44,9 +44,15 @@ export default class ArticleItem extends Component {
       width: '50%'
     }
 
+    const linkStyle = {
+      textDecoration: 'none',
+      color: 'crimson'
+    }
+
+
     return (
       <div className="articleItem" style={articleItemStyle}>
-        <h2 className="articleTitle">{this.props.article.title.rendered}</h2>
+        <h2 className="articleTitle"><Link style={linkStyle} to={{ pathname: `/post/${this.props.article.id}` }}>{this.props.article.title.rendered}</Link></h2>
 
         <img alt={this.props.article.title.rendered} style={featuredImageStyle} src={
           this.props.article._embedded !== null && typeof this.props.article._embedded['wp:featuredmedia'] !== 'undefined' ? this.props.article._embedded['wp:featuredmedia'][0].source_url : 'https://placeimg.com/300/200/animal'} />

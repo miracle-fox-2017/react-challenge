@@ -18,12 +18,17 @@ class App extends Component {
   }
 
   render () {    
+    const linkStyle = {
+      textDecoration: 'none',
+      color: '#fff'
+    }
+
     return (
       <Router>
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">React News</h1>
+            <h1 className="App-title"><Link style={linkStyle} to="/">React News</Link></h1>
           </header>
 
           <Route exact path="/" component={IndexPage} />

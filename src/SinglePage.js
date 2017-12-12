@@ -45,7 +45,6 @@ export default class SinglePage extends Component {
           <h2 className="articleTitle">{this.state.article.title.rendered}</h2>
 
           <br />
-
           <div dangerouslySetInnerHTML={{ __html: this.state.article.content.rendered }}></div>
         </div>
       </div>
