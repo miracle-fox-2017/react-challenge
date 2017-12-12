@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import axios from 'axios';
+import Home from './Home';
+import ImageShow from './Flick';
 import './App.css';
 
 class App extends Component {
@@ -27,19 +30,31 @@ class App extends Component {
   }
 
   componentWillMount(){
-    console.log('here')
     this.getData()
   }
 
   render() {
     return (
-      <ul>
-      { this.state.flick.map((item, i) => {
-          return (
-            <li key={i}><img src={ `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg` } alt=''/></li>
-          )
-        })}
-      </ul>
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/flick/1">About</Link></li>
+          </ul>
+
+          <ul>
+            {this.state.flick.map((item, i) => {
+              return (
+                <li key={i}><Link to={`/flick/${item.farm}/${item.server}/${item.id}/${item.secret}`}><img src={ `https://farm${item.farm}.staticflickr.com/${item.server}/${item.id}_${item.secret}_s.jpg` } alt=''/></Link></li>
+              )
+            })}
+          </ul>
+
+          <Route exact path="/" component={Home}/>
+          <Route path="/flick/:farmid/:serverid/:id/:secret" component={ImageShow} message="hehehe"/>
+
+        </div>
+      </Router>
     );
   }
 }
