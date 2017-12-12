@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
+import React, { Component } from 'react'	
 
 class Hero extends Component {
 	render() {
 		return (
 			<div>
-				<h4> <span> Name </span> <small> {this.props.heroList.Name} </small>
-					 <span> MS </span> <small> {this.props.heroList.Movespeed} </small>
-					 <span> HP </span> <small> {this.props.heroList.HP} </small>
-					 <span> MANA </span> <small> {this.props.heroList.Mana} </small>
-				</h4>	 
+				<h4> <span> Name </span> <small> {this.props.heroList.Name}</small>
+				</h4>
+				<button> <Link to={this.props.heroList.Name}> Show Detail </Link> </button>	 
 			</div>
 		)
 	}
