@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 export default class GameItem extends Component {
   constructor(props) {
@@ -23,6 +24,8 @@ export default class GameItem extends Component {
   }
 
   render() {
+    const url = '/game/'+this.props.gameItem.id
+
     return (
       <div className="card">
         <div className="card-image">
@@ -48,7 +51,7 @@ export default class GameItem extends Component {
             <br/>
             <time>Release Date: {this.handeDate(this.props.gameItem.original_release_date)}</time>
             <br/>
-            <a className="button is-info">Read More</a>
+            <Link to={url} className="button is-info">Read More</Link>
           </div>
         </div>
       </div>
