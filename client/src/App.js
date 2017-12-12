@@ -28,9 +28,6 @@ class App extends Component {
             <ul className="nav navbar-nav">
               <li className="active"><Link to="/">Home</Link></li>
             </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li ><a href="#">Login</a></li>
-            </ul>
           </div>
           <Route exact path="/" component={Home}/>
           <Route exact path="/dota/:heroName" render={(props) => (<Dota heroes={this.state.hero} {...props}/> )}/>

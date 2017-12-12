@@ -6,6 +6,10 @@ import {
 } from 'react-router-dom'
 import Home from './Home'
 
+const style = {
+  backgroundImage: "url('https://lh6.ggpht.com/iByYk3ChZ3bdgNIhNi8hdrr9t0THKBJXQyrtLr0ZJ_NHU3i5MuAW43gdUv5GL1b5j5V_=h900')"
+}
+
 class Dota extends React.Component {
   constructor () {
     super ()
@@ -14,7 +18,7 @@ class Dota extends React.Component {
   render () {
     return (
       <div>
-        <h1>INFORMASI DETAILS {this.props.match.params.heroName}</h1>
+        <h1>HERO DETAILS :   {this.props.match.params.heroName}</h1>
         <table className="table" border="2px">
           <thead>
             <tr>
@@ -69,5 +73,6 @@ class Dota extends React.Component {
     )
   }
 }
+
 
 export default Dota
