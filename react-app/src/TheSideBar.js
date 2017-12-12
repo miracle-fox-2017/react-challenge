@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
+const style = {
+  overflowY: 'auto',
+  height: '90vh',
+  direction: 'rtl',
+  textAlign: 'left'
+}
+
 class TheSideBar extends Component {
   constructor(props){
     super()
@@ -31,7 +38,7 @@ class TheSideBar extends Component {
 
   render() {
     return (
-      <div className="box">
+      <div style={style} className="column is-2">
         <ul>
           {this.state.flick.map((item, i) => {
             return (

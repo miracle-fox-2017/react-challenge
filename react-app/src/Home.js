@@ -1,8 +1,9 @@
 import React from 'react'
+import logo from './logo.svg';
 
 const Home = (props) => (
   <div>
-    <h1> ini home </h1>
+    <img src={logo} className="App-logo" alt="logo" />
   </div>
 )
 
