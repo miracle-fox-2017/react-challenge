@@ -19,6 +19,7 @@ class NavbarZomato extends Component {
   }
   handleSubmit(event) {
     this.props.getLocation(this.state.location)
+    this.setState({location: ''});
     event.preventDefault();
   }
   render () {
