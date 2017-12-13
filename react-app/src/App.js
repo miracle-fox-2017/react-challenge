@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   getData() {
-    axios.get('https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=3be0cbebe2255a6a18b64a40ff016501&user_id=spacex&per_page=20&format=json&nojsoncallback=1&auth_token=72157661520655197-5a823f992a0e57a6&api_sig=cf2aac466b69cb82da583e242efcdd9a')
+    axios.get('https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=0b9d416136a2840098f1a8fc9ceff6f3&user_id=spacex&per_page=20&format=json&nojsoncallback=1')
     .then(({ data })=>{
       this.setState({
         flick: data.photos.photo
