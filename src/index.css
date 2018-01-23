@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.article {
+  text-align: justify;
+  max-width: 800px !important;
+}
+
+.article figure img {
+  width: 100% !important;
+}
+
+.article figure {
+  width: 100% !important;
+}
